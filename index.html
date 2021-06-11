@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mr.Gs Auto Cosmetics</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=B612+Mono|Permanent+Marker|Righteous|UnifrakturMaguntia|Viga" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet"> 
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            background: url('images/bmw.jpg') no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        html, body {
+            height: 100%;
+            font-size: 20px;
+        }
+
+        .navbar {
+            background: rgb(0,0,0);
+            padding-bottom: 10px;
+            font-family: 'B612 Mono', monospace;
+            position: fixed;
+            width: 100%;
+            transition: all 2s ease;
+        }
+        .menu {
+            list-style-type: none;
+            display: none;
+            font-family: 'Bowlby One SC', cursive;
+        }
+        .nav-link,
+        .logo {
+            text-decoration: none;
+            color: white;
+            font-size: 25px;
+        }
+        .menu li {
+            text-align: center;
+            margin: 15px auto;
+        }
+        .logo {
+            display: inline-block;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+        .navbar-toggle {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            cursor: pointer;
+            color: rgba(255,255,255,0.8);
+        }
+        .active {
+            display: block;
+        }
+
+        #home {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #home div {
+            text-align: center;
+            color: #111;
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 30px;
+            background: rgb(255,255,255,.5);
+            width: 100%;
+            padding: 100px;
+        }
+
+        #about {
+            height: 100vh;
+            background: #111;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 30px;
+        }
+        #about div {
+            text-align: center;
+        }
+        #about h3 {
+            margin-bottom: 50px;
+        }
+        #about p {
+            font-family: 'Righteous', cursive;
+        }
+
+        #services {
+            min-height: 100vh;
+            text-align: center;
+            padding-bottom: 50px;
+        }
+        #services h3 {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            background: rgb(255,255,255,.5);
+            padding: 25px;
+        }
+        #services .card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Permanent Marker', cursive;
+            font-size: 35px;
+            padding: 10px;
+            cursor: pointer;
+            background: rgb(255,255,255,.5);
+            height: 250px;
+            border: 1px solid #111;
+        }
+        .c1 {
+            grid-row: 1 / 2;
+            grid-column: 1 / 5;
+        }
+        .c2 {
+            grid-row: 2 / 3;
+            grid-column: 1 / 3;
+        }
+        .c3 {
+            grid-row: 2 / 3;
+            grid-column: 3 / 5;
+        }
+        #services .card a {
+            color: black;
+            text-decoration: none;
+        }
+        #services .card:hover {
+            background: white;
+            color: #111;
+        }
+        #services .card:hover a {
+            color: #111;
+        }
+
+        #contact {
+            padding-top: 50px;
+            /* viewport changes on text input so using px not vh until media query */
+            height: 1000px;
+            background: #111;
+            text-align: center;
+        }
+        #contact h3 {
+            margin-bottom: 50px;
+            color: white;
+        }
+        #contact input {
+            margin-bottom: 25px;
+            width: 250px;
+            height: 50px;
+            font-size: 25px;
+            background: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        #contact textarea {
+            margin-bottom: 25px;
+            width: 250px;
+            height: 400px;
+            font-size: 25px;
+            background: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 45px;
+            font-family: 'Viga', sans-serif;
+        }
+
+        @media screen and (min-width: 768px) {
+            .navbar {
+                display: flex;
+                justify-content: space-around;
+                padding-bottom: 0;
+                height: 70px;
+                align-items: center;
+            }
+            .menu {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+            }
+            .menu li {
+                margin: 0;
+            }
+            .nav-link {
+                margin-left: 40px;
+            }
+            .logo {
+                margin-top: 0;
+            }
+            .navbar-toggle {
+            display: none;
+            }
+            .logo:hover,
+            .nav-link:hover {
+                color: rgba(255, 255, 255, 1);
+            }
+            #home div {
+                font-size: 45px;
+            }
+            #about p {
+                font-size: 30px;
+            }
+            #services .cards {
+               display: grid;
+               grid-template-rows: auto auto auto auto;
+               grid-template-columns: 25% 25% 25% 25%;
+               margin-left: 25px;
+               margin-right: 25px;
+            }
+            #contact {
+                height: 110vh;
+            }
+            #contact input {
+                width: 700px;
+            }
+            #contact textarea {
+                width: 700px;
+                height: 200px;
+            }
+            h3 {
+                font-size: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <span class="navbar-toggle" id="js-navbar-toggle">
+            <i class="fas fa-bars"></i>
+        </span>
+        <a href="#" class="logo"><i>Mr.Gs</i><Mr.Gs> <i class="fas fa-wrench"></i></a>
+        <ul class="menu" id="js-menu">
+            <li><a class="nav-link" href="#home">Home</a></li>
+            <li><a class="nav-link" href="#about">About</a></li>
+            <li><a class="nav-link" href="#services">Services</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div id="home">
+        <div>
+            <h1>Mr.Gs Auto Cosmetics</h1>
+            <p>Professional Automotive Services</p>
+        </div>
+    </div>
+
+    <div id="about">
+        <div>
+            <h3>About Us</h3>
+            <p>A young but ambitious auto services startup. We are a team of talented, motivated individuals whom share the vision of making the industry shine inside and out.</p>
+        </div>
+    </div>
+
+    <div id="services">
+        <h3>Services</h3>
+        <div class="cards">
+            <div class="card c1">
+                <a href="upholstery.html">upholstery</a>
+            </div>
+            <div class="card c2">
+                    <a href="softtops.html">soft tops</a>
+            </div>
+            <div class="card c3">
+                    <a href="detailing.html">detailing</a>
+            </div>
+            <div class="card c4">
+                    <a href="tinting.html">window tinting</a>
+            </div>
+            <div class="card c5">
+                    <a href="vinyl.html">vinyl graphics</a>
+            </div>
+            <div class="card c6">
+                    <a href="bodywork.html">body work</a>
+            </div>
+            <div class="card c7">
+                    <a href="painting.html">custom painting</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact">
+        <h3>Contact Us</h3>
+        <form>
+            <input type="text" placeholder="name"/><br>
+            <input type="text" placeholder="email"/><br>
+            <textarea placeholder="message"></textarea><br>
+            <input type="submit" value="submit"/>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script>
+        let menu = $('#js-menu');
+        let navBarToggle = $('#js-navbar-toggle');
+
+        navBarToggle.click(function() {
+            menu.toggleClass('active');
+        })
+    </script>
+
+    <script>
+        $('.card').click(function() {
+            window.location = $(this).find("a").attr("href"); 
+            return false;
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('a[href^="#"]').on('click', function(event) {
+                var target = $(this.getAttribute('href'));
+                if( target.length ) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
+                if (scroll > 0) {
+                    $('.navbar').css('background', 'rgb(0,0,0,.7)');
+                } else {
+                    $('.navbar').css('background', 'rgb(0,0,0)');
+                }
+            })
+        })
+    </script>
+</body>
+</html>
